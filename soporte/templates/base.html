@@ -36,8 +36,8 @@
                                 href="{% url 'soportes' %}">Registros Guardados</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link"
-                                href="">Nuevo Registro</a>
+                            <a class="nav-link {% if request.resolver_match.url_name == 'nuevo_soporte' %}active{% endif %}"
+                                href="{% url 'nuevo_soporte' %}">Nuevo Registro</a>
                         </li>
                     </ul>
                 </div>

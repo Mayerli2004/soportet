@@ -1,0 +1,83 @@
+{% extends "base.html" %} {% block titulo %} Soportes {% endblock %}
+{% block contenido %} <br /><br />
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-header">
+          <h2>Registrar Soporte</h2>
+        </div>
+        <div class="card-body">
+          <form action="/nuevo_soporte/" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="nombre_pc">Computador</label>
+              <input
+                type="text"
+                class="form-control"
+                name="nombre_pc"
+                id="nombre_pc"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="descripcion_pc">Descripción Del Pc</label>
+              <textarea class="form-control" name="descripcion_pc"
+              id="descripcion_pc"
+              required>
+            </textarea>
+            </div>
+            <div class="mb-3">
+              <label for="descripcion_problema">Descripción Problema</label>
+              <textarea class="form-control" name="descripcion_problema"
+              id="descripcion_problema"
+              required>
+            </textarea>
+            </div>
+            <div class="mb-3">
+              <label for="prioridad">Prioridad</label>
+              <select name="prioridad" id="prioridad" class="form-select" required>
+                <option value="">Seleccione</option>
+                <option value="alta">Alta</option>
+                <option value="media">Media</option>
+                <option value="baja">Baja</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="estado">Estado</label>
+              <select name="estado" id="estado" class="form-select" required>
+                <option value="">Seleccione</option>
+                <option value="abierto">Abierto</option>
+                <option value="en_proceso">En proceso</option>
+                <option value="cerrado">Cerrado</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="fecha">Fecha</label>
+              <input
+                type="date"
+                class="form-control"
+                name="fecha"
+                id="fecha"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="cliente_id_id">Cliente</label>
+              <select name="cliente_id_id" id="cliente_id_id" class="form-select" required />
+              <option value="" selected="selected">Seleccionar un cliente</option>
+              {% for cliente in clientes %}
+              <option value="{{ cliente.id }}">{{ cliente.nombre }}</option>
+              {% endfor %}
+              </select>
+          </div>
+            <button type="submit" class="btn btn-success btn-block text-white">
+              Guardar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
