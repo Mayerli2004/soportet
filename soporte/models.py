@@ -15,10 +15,10 @@ class Soporte(models.Model):
     nombre_pc = models.CharField(max_length=100)
     descripcion_pc = models.TextField()
     descripcion_problema = models.TextField()
-    prioridad = models.CharField(max_length=20, choices=[('Alta', 'Alta'), ('Media', 'Media'), ('Baja', 'Baja')])
-    estado = models.CharField(max_length=20, choices=[('Abierto', 'Abierto'), ('En proceso', 'En proceso'), ('Cerrado', 'Cerrado')])
-    fecha = models.DateTimeField(auto_now_add=True)
-    cliente_id = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    prioridad = models.CharField(max_length=10)
+    estado = models.CharField(max_length=10)
+    fecha = models.DateField(null=True, blank=True)
+    cliente = models.ForeignKey('Cliente', on_delete=models.CASCADE)
 
     def __str__(self):
         return f"Soporte para {self.nombre_pc}"

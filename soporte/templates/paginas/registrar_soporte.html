@@ -63,8 +63,8 @@
               />
             </div>
             <div class="mb-3">
-              <label for="cliente_id_id">Cliente</label>
-              <select name="cliente_id_id" id="cliente_id_id" class="form-select" required />
+              <label for="cliente">Cliente</label>
+              <select name="cliente" id="cliente" class="form-select" required />
               <option value="" selected="selected">Seleccionar un cliente</option>
               {% for cliente in clientes %}
               <option value="{{ cliente.id }}">{{ cliente.nombre }}</option>

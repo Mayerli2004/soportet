@@ -5,7 +5,7 @@ from .models import Soporte, Cliente
 class SoporteForm(forms.ModelForm):
     class Meta:
         model = Soporte
-        fields = '__all__'
+        fields = ['nombre_pc', 'descripcion_pc', 'descripcion_problema', 'prioridad', 'estado', 'fecha', 'cliente']
 
 class ClienteForm(forms.ModelForm):
     class Meta:
